@@ -1,0 +1,2709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyland Haven · Guest Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0;
+    --bg-card: #FFFFFF;
+    --bg-dark: #1A1A1A;
+    --text: #2C2C2C;
+    --text-muted: #6B6B6B;
+    --text-light: #999;
+    --accent: #2D5A3D;
+    --accent-light: #E8F0EB;
+    --accent-warm: #C4763B;
+    --accent-warm-light: #FFF3E8;
+    --danger: #C0392B;
+    --danger-light: #FDEDEC;
+    --danger-bg: #FFF5F5;
+    --warning: #E67E22;
+    --warning-light: #FFF8E1;
+    --success: #27AE60;
+    --border: #E5E1DA;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ─────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  .nav.scrolled { box-shadow: var(--shadow-sm); }
+  .nav-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+    white-space: nowrap;
+    margin-right: 12px;
+    text-decoration: none;
+  }
+  .nav-link {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .nav-link:hover, .nav-link.active {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* ── HERO ─────────────────────────────────── */
+  .hero {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px 40px;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 7vw, 56px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .hero-address {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+  .hero-wifi {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 20px 36px;
+    box-shadow: var(--shadow-md);
+  }
+  .hero-wifi .wifi-icon {
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+  .hero-wifi .wifi-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .hero-wifi .wifi-network {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .hero-wifi .wifi-pass {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--accent-light);
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-top: 6px;
+    user-select: all;
+    cursor: pointer;
+  }
+
+  /* ── SECTIONS ─────────────────────────────── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-top: 16px;
+  }
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .section-icon.green { background: var(--accent-light); }
+  .section-icon.warm { background: var(--accent-warm-light); }
+  .section-icon.red { background: var(--danger-light); }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p { color: var(--text-muted); font-size: 15px; }
+  .card p + p { margin-top: 8px; }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 540px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--text-muted); }
+  .info-value { font-weight: 600; text-align: right; }
+
+  .check-list { list-style: none; padding: 0; }
+  .check-list li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 15px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .rule-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+  .rule-item:last-child { border-bottom: none; }
+  .rule-item strong { color: var(--text); display: block; margin-bottom: 2px; }
+
+  /* ── ALERT BOXES ──────────────────────────── */
+  .alert {
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .alert-danger {
+    background: var(--danger-bg);
+    border: 2px solid var(--danger);
+    border-left: 6px solid var(--danger);
+  }
+  .alert-danger .alert-heading {
+    color: var(--danger);
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .alert-warning {
+    background: var(--warning-light);
+    border: 2px solid var(--warning);
+    border-left: 6px solid var(--warning);
+  }
+  .alert-warning .alert-heading {
+    color: var(--warning);
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .alert-success {
+    background: #EAFAF1;
+    border: 2px solid var(--success);
+    border-left: 6px solid var(--success);
+  }
+  .alert-success .alert-heading {
+    color: var(--success);
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .alert-info {
+    background: #EBF5FB;
+    border: 2px solid #3498DB;
+    border-left: 6px solid #3498DB;
+  }
+  .alert-info .alert-heading {
+    color: #2980B9;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  /* ── HOT TUB SECTION ──────────────────────── */
+  .hottub-page-header {
+    text-align: center;
+    padding: 60px 20px 32px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .hottub-page-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(30px, 6vw, 44px);
+    margin-bottom: 8px;
+  }
+  .hottub-page-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .step-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .step-card .step-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .step-card .step-content p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* control panel diagram */
+  .control-panel-visual {
+    background: linear-gradient(135deg, #2C3E50 0%, #1a252f 100%);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    text-align: center;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .control-panel-visual::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .panel-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .panel-body {
+    background: linear-gradient(180deg, #4A6274 0%, #3D5467 100%);
+    border-radius: 60px;
+    padding: 24px 28px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    border: 2px solid rgba(255,255,255,0.15);
+    position: relative;
+  }
+  .panel-display {
+    background: #1a1a1a;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    color: #FF8C00;
+    text-shadow: 0 0 10px rgba(255,140,0,0.5);
+    letter-spacing: 2px;
+    border: 1px solid #333;
+  }
+  .panel-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .panel-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    cursor: default;
+  }
+  .panel-btn.warm {
+    background: linear-gradient(180deg, #8899AA 0%, #6B7C8D 100%);
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+  .panel-btn.cool {
+    background: linear-gradient(180deg, #8899AA 0%, #6B7C8D 100%);
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+  .panel-btn.jets {
+    background: linear-gradient(180deg, #8899AA 0%, #6B7C8D 100%);
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+  .panel-btn.light {
+    background: linear-gradient(180deg, #D4AA6A 0%, #B8924E 100%);
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+  .panel-btn-label {
+    font-size: 9px;
+    position: absolute;
+    bottom: -18px;
+    color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+  .btn-arrow { font-size: 18px; font-weight: 400; }
+
+  .panel-annotation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+  .annotation-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .annotation-dot.orange { background: #FF8C00; }
+  .annotation-dot.red { background: #E74C3C; }
+  .annotation-dot.green { background: #2ECC71; }
+
+  /* mode indicator */
+  .mode-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 540px) {
+    .mode-cards { grid-template-columns: 1fr; }
+  }
+  .mode-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    border: 2px solid var(--border);
+  }
+  .mode-card.good { border-color: var(--success); background: #EAFAF1; }
+  .mode-card.bad { border-color: var(--danger); background: var(--danger-bg); }
+  .mode-card .mode-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .mode-card .mode-name {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .mode-card .mode-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .mode-card.good .mode-code { color: var(--success); }
+  .mode-card.bad .mode-code { color: var(--danger); }
+
+  /* troubleshooting */
+  .troubleshoot-item {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .troubleshoot-item:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+  .troubleshoot-q {
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .troubleshoot-q .arrow {
+    font-size: 18px;
+    color: var(--text-muted);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .troubleshoot-item.open .arrow { transform: rotate(180deg); }
+  .troubleshoot-a {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .troubleshoot-item.open .troubleshoot-a { display: block; }
+
+  /* spots / recommendations */
+  .spot-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .spot-emoji {
+    font-size: 24px;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+  }
+  .spot-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .spot-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .spot-dist {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 2px 8px;
+    border-radius: 100px;
+    white-space: nowrap;
+    margin-top: 4px;
+    display: inline-block;
+  }
+
+  /* contact */
+  .contact-card {
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-bottom: 12px;
+  }
+  .contact-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  .contact-card p {
+    opacity: 0.8;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .contact-card a {
+    display: inline-block;
+    background: #fff;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  .emergency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media (max-width: 540px) {
+    .emergency-grid { grid-template-columns: 1fr; }
+  }
+  .emergency-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .emergency-item .em-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .emergency-item a {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  /* page tabs */
+  .page-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .page-tab {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 100px;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .page-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .page-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* page containers */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* footer */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 13px;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* divider */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* phone link */
+  a.phone-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* utility */
+  .mt-8 { margin-top: 8px; }
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-16 { margin-bottom: 16px; }
+  .text-sm { font-size: 14px; }
+  .text-xs { font-size: 12px; }
+  .text-center { text-align: center; }
+  .text-muted { color: var(--text-muted); }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .font-bold { font-weight: 700; }
+
+  /* back to top */
+  .back-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    z-index: 90;
+  }
+  .back-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* hot tub photo container */
+  .control-photo {
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+  .control-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* timing card */
+  .timing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 540px) {
+    .timing-grid { grid-template-columns: 1fr; }
+  }
+  .timing-item {
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .timing-item .timing-temp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--accent-warm);
+  }
+  .timing-item .timing-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ── QR CODE PAGE ─────────────────────────── */
+  .qr-page-header {
+    text-align: center;
+    padding: 60px 20px 12px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .qr-page-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(30px, 6vw, 44px);
+    margin-bottom: 8px;
+  }
+  .qr-page-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .qr-url-input-wrap {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+  .qr-url-input-wrap label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .qr-url-row {
+    display: flex;
+    gap: 10px;
+  }
+  .qr-url-input {
+    flex: 1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    padding: 10px 14px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .qr-url-input:focus { border-color: var(--accent); }
+  .qr-generate-btn {
+    padding: 10px 20px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .qr-generate-btn:hover { background: #1e4a2e; }
+  @media (max-width: 540px) {
+    .qr-url-row { flex-direction: column; }
+  }
+
+  .qr-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 600px) {
+    .qr-cards-grid { grid-template-columns: 1fr; }
+  }
+
+  .qr-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .qr-card:hover { border-color: var(--accent); }
+  .qr-card .qr-card-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .qr-card .qr-card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .qr-card canvas {
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 16px;
+  }
+  .qr-card .qr-card-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    word-break: break-all;
+    margin-bottom: 12px;
+    padding: 6px 10px;
+    background: var(--bg);
+    border-radius: 6px;
+  }
+  .qr-dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .qr-dl-btn:hover { background: var(--accent); color: #fff; }
+
+  .qr-custom-card {
+    background: var(--bg-card);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    text-align: center;
+  }
+  .qr-custom-card canvas {
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 16px;
+  }
+
+  .qr-print-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .qr-print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .qr-print-btn:hover { background: #1e4a2e; }
+
+  /* print styles */
+  @media print {
+    .nav, .back-top, .footer, .qr-url-input-wrap, .qr-dl-btn, .qr-print-section,
+    .qr-custom-card, .hero-badge, .qr-cards-grid, .qr-page-header,
+    .signs-header, .sign-preview-actions { display: none !important; }
+    .page { display: none !important; }
+    .page.printing { display: block !important; }
+    body { background: #fff; }
+    .qr-cards-grid { gap: 40px; }
+    .qr-card { border: 2px solid #ccc; page-break-inside: avoid; padding: 40px; }
+    .qr-card canvas { width: 200px !important; height: 200px !important; }
+    .qr-page-header { padding-top: 20px; }
+
+    /* sign printing */
+    .signs-grid { display: none !important; }
+    .sign-print-target { display: block !important; }
+    .sign-frame {
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      page-break-after: always;
+      margin: 0 !important;
+      padding: 40px !important;
+    }
+    .sign-frame.sign-hottub { min-height: 100vh !important; }
+    .sign-frame.sign-wifi { min-height: 100vh !important; }
+    .sign-frame.sign-checkout { min-height: 100vh !important; }
+  }
+
+  /* ── PRINTABLE SIGNS ──────────────────────── */
+  .signs-header {
+    margin-top: 48px;
+    margin-bottom: 24px;
+    padding-top: 32px;
+    border-top: 2px solid var(--border);
+  }
+  .signs-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+  .signs-header p {
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 520px;
+  }
+
+  .signs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .sign-preview-wrap {
+    position: relative;
+  }
+
+  .sign-preview-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sign-preview-label .sign-location {
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  .sign-preview-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    justify-content: center;
+  }
+
+  .sign-print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  .sign-print-btn.primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .sign-print-btn.primary:hover { background: #1e4a2e; }
+  .sign-print-btn.secondary {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+  .sign-print-btn.secondary:hover { background: var(--accent); color: #fff; }
+
+  .sign-print-target { display: none; }
+
+  /* ── Sign Frame (shared) ─────────────────── */
+  .sign-frame {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── HOT TUB SIGN ────────────────────────── */
+  .sign-hottub {
+    padding: 0;
+  }
+  .sign-hottub-header {
+    background: linear-gradient(135deg, #1a3a2a 0%, #2D5A3D 50%, #1a3a2a 100%);
+    padding: 32px 32px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .sign-hottub-header::before {
+    content: '';
+    position: absolute;
+    top: -40%; left: -20%; width: 140%; height: 100%;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .sign-hottub-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .sign-hottub-header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    position: relative;
+  }
+  .sign-hottub-body {
+    padding: 28px 32px 32px;
+  }
+  .sign-hottub-body .sign-alert {
+    background: #FFF5F5;
+    border: 2px solid #E74C3C;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+  }
+  .sign-alert-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #C0392B;
+    margin-bottom: 6px;
+  }
+  .sign-alert-text {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .sign-modes-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .sign-mode {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+    border-radius: 10px;
+    border: 2px solid;
+  }
+  .sign-mode.good { border-color: #27AE60; background: #EAFAF1; }
+  .sign-mode.bad { border-color: #E74C3C; background: #FFF5F5; }
+  .sign-mode .sm-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .sign-mode.good .sm-code { color: #27AE60; }
+  .sign-mode.bad .sm-code { color: #E74C3C; }
+  .sign-mode .sm-name { font-size: 11px; font-weight: 600; color: #666; margin-top: 2px; }
+
+  .sign-steps {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .sign-steps li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 8px 0;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .sign-steps li:last-child { border-bottom: none; }
+  .sign-step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #2D5A3D;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .sign-qr-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #F7F5F0;
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .sign-qr-footer canvas {
+    flex-shrink: 0;
+    border-radius: 6px;
+  }
+  .sign-qr-footer-text {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+  }
+  .sign-qr-footer-text strong { color: #2C2C2C; }
+
+  /* ── WIFI SIGN ───────────────────────────── */
+  .sign-wifi {
+    padding: 0;
+  }
+  .sign-wifi-header {
+    background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+    padding: 36px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .sign-wifi-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .sign-wifi-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .sign-wifi-header .sign-wifi-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .sign-wifi-body {
+    padding: 32px;
+    text-align: center;
+  }
+  .sign-wifi-field {
+    margin-bottom: 24px;
+  }
+  .sign-wifi-field .swf-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 6px;
+  }
+  .sign-wifi-field .swf-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    color: #2C2C2C;
+    background: #F7F5F0;
+    padding: 10px 24px;
+    border-radius: 10px;
+    display: inline-block;
+    letter-spacing: 1px;
+  }
+  .sign-wifi-divider {
+    width: 60px;
+    height: 2px;
+    background: #E5E1DA;
+    margin: 0 auto 24px;
+  }
+  .sign-wifi-qr-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .sign-wifi-qr-wrap canvas { border-radius: 8px; }
+  .sign-wifi-qr-wrap p {
+    font-size: 12px;
+    color: #999;
+  }
+
+  /* ── CHECKOUT SIGN ───────────────────────── */
+  .sign-checkout {
+    padding: 0;
+  }
+  .sign-checkout-header {
+    background: linear-gradient(135deg, #C4763B 0%, #D4894E 100%);
+    padding: 28px 32px;
+    text-align: center;
+  }
+  .sign-checkout-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .sign-checkout-header p {
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+  }
+  .sign-checkout-body {
+    padding: 28px 32px 32px;
+  }
+  .sign-checkout-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sign-checkout-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 15px;
+    color: #444;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .sign-checkout-list li:last-child { border-bottom: none; }
+  .sign-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .sign-checkout-footer {
+    text-align: center;
+    padding: 0 32px 28px;
+    font-size: 14px;
+    color: #888;
+  }
+  .sign-checkout-footer strong {
+    color: #C4763B;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand" onclick="switchPage('home')">Skyland Haven</a>
+    <a href="#top" class="nav-link active" onclick="switchPage('home')" data-page="home">Property Guide</a>
+    <a href="#top" class="nav-link" onclick="switchPage('hottub')" data-page="hottub">Hot Tub Guide</a>
+    <a href="#top" class="nav-link" onclick="switchPage('qr')" data-page="qr">QR Codes</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1: PROPERTY GUIDE
+     ══════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="hero-badge">Guest Guide</div>
+    <h1>Skyland Haven</h1>
+    <p class="hero-address">39 W Skyland Circle · Woodfin, NC 28804</p>
+    <div class="hero-wifi">
+      <div class="wifi-icon">📶</div>
+      <div class="wifi-label">WiFi Network</div>
+      <div class="wifi-network">Skyland Haven</div>
+      <div class="wifi-label mt-8">Password</div>
+      <div class="wifi-pass" title="Click to select">Welove5*reviews</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── CHECK IN / OUT ───────────────────── -->
+    <section class="section" id="checkin">
+      <div class="section-header">
+        <div class="section-icon green">🔑</div>
+        <h2 class="section-title">Check In &amp; Check Out</h2>
+      </div>
+
+      <div class="card">
+        <div class="grid-2">
+          <div>
+            <div class="info-row">
+              <span class="info-label">Check in</span>
+              <span class="info-value">After 4:00 PM</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Check out</span>
+              <span class="info-value">Before 10:00 AM</span>
+            </div>
+          </div>
+          <div>
+            <div class="info-row">
+              <span class="info-label">Driveway</span>
+              <span class="info-value">3 cars</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Street</span>
+              <span class="info-value">2 additional</span>
+            </div>
+          </div>
+        </div>
+        <p class="mt-12 text-sm text-muted">If parking on the street, please leave room for garbage and delivery trucks.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Checkout Checklist</div>
+        <ul class="check-list">
+          <li>Leave used towels in the bathtub</li>
+          <li>Load and start the dishwasher</li>
+          <li>Wash and put away any other dishes</li>
+          <li>Place trash &amp; recycling in outdoor bins</li>
+          <li>Remove all personal belongings</li>
+          <li>Set A/C to 75°F <em>or</em> Heat to 68°F</li>
+          <li>Replace the hot tub cover</li>
+          <li>Lock all doors &amp; windows</li>
+          <li>Log out of any streaming accounts on the TVs</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── HOUSE RULES ──────────────────────── -->
+    <section class="section" id="rules">
+      <div class="section-header">
+        <div class="section-icon warm">📜</div>
+        <h2 class="section-title">House Rules</h2>
+      </div>
+
+      <div class="card">
+        <div class="rule-item">
+          <strong>🚗 Parking</strong>
+          Maximum 5 cars per reservation. 3 in the driveway, 2 on the street.
+        </div>
+        <div class="rule-item">
+          <strong>🐾 Pets</strong>
+          Pets are welcome but not allowed on furniture. Pet hair on furniture may result in a fee. Dog bowls and waste bags are in a drawer to the right of the kitchen sink.
+        </div>
+        <div class="rule-item">
+          <strong>🚭 Smoking</strong>
+          No smoking in or near the house. Please use the grass area or the top of the driveway. Dispose of cigarette butts in the outdoor trash bin by the mailbox.
+        </div>
+        <div class="rule-item">
+          <strong>🎉 No Parties</strong>
+          Please be respectful of the neighbors. No unregistered guests on the property unless approved by the host.
+        </div>
+        <div class="rule-item">
+          <strong>🔇 Quiet Hours</strong>
+          No loud noises between 10:00 PM and 7:00 AM.
+        </div>
+        <div class="rule-item">
+          <strong>🗑️ Trash</strong>
+          Keep bungee cords attached on the outdoor trash bin — the bears will get into it otherwise!
+        </div>
+        <div class="rule-item">
+          <strong>⚠️ Damages</strong>
+          Please treat the home as your own and report any issues or damages immediately to Justin at <a href="tel:+16197635872" class="phone-link">(619) 763-5872</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AMENITIES & HOW-TOS ──────────────── -->
+    <section class="section" id="amenities">
+      <div class="section-header">
+        <div class="section-icon green">🏡</div>
+        <h2 class="section-title">Amenities &amp; How‑Tos</h2>
+      </div>
+
+      <!-- Hot Tub Quick Card -->
+      <div class="card" style="border-color: var(--accent-warm); border-width: 2px;">
+        <div class="card-title">🛁 Hot Tub</div>
+        <p>The water is tested and balanced during each turnover. Ideal temp is 100–103°F. For detailed instructions, see the <a href="#" onclick="switchPage('hottub'); return false;" style="color: var(--accent-warm); font-weight: 700;">Hot Tub Guide →</a></p>
+        <p class="mt-8"><strong>Quick rules:</strong> Rinse off before entering (no lotions/oils/perfumes). Replace the cover when finished. Keep soaks to 15 minutes. Only use the designated hot tub towels outside.</p>
+        <p class="mt-8"><strong>Important:</strong> Jets run continuously when the spa is heating — this is normal and you won't be able to turn them off until the set temperature is reached.</p>
+      </div>
+
+      <!-- Smart TVs -->
+      <div class="card">
+        <div class="card-title">📺 Smart TVs</div>
+        <p>No cable — streaming only. Log into your own accounts (Netflix, Hulu, etc.) and <strong>don't forget to log out before you leave!</strong> One remote per TV.</p>
+      </div>
+
+      <!-- Fire Pit -->
+      <div class="card">
+        <div class="card-title">🔥 Fire Pit</div>
+        <p><strong>Gas fire pit (back deck):</strong> Uses propane. We try to provide a full tank, but it can last only ~10 hours total. Please limit use to about 1 hour per night.</p>
+        <p class="mt-8"><strong>Solo Stove (outside):</strong> We do not provide firewood. The best place to grab some is Ingles. Be sure the fire is completely out before leaving it unattended.</p>
+      </div>
+    </section>
+
+    <!-- ── WHERE TO FIND STUFF ──────────────── -->
+    <section class="section" id="find">
+      <div class="section-header">
+        <div class="section-icon green">🔍</div>
+        <h2 class="section-title">Where to Find Things</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🩹 First Aid Kit</div>
+          <p>Under the sink in the hallway bathroom, main level.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🧯 Fire Extinguishers</div>
+          <p>Under the kitchen sink and in the basement supply closet nearest the bathroom.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🧹 Cleaning Supplies</div>
+          <p>Broom in the hallway closet. Vacuum in the basement closet. Bath supplies provided for your stay.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🗑️ Trash &amp; Recycling</div>
+          <p>Trash can is to the right of the kitchen sink. Recycle directly into the outdoor bin. Keep bungee cords on!</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🎲 Games</div>
+          <p>Board and card games in the basement TV console. Corn hole set in the basement in a black bag (please re-bag at checkout).</p>
+        </div>
+        <div class="card">
+          <div class="card-title">👶 Baby Gear</div>
+          <p>Portable crib &amp; baby gates in the primary bedroom closet. High chair in the main floor king bedroom. Baby books/toys under the living room TV.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LOCAL SPOTS ──────────────────────── -->
+    <section class="section" id="local">
+      <div class="section-header">
+        <div class="section-icon warm">📍</div>
+        <h2 class="section-title">Local Favorites</h2>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">☕</div>
+        <div class="spot-info">
+          <h3>High Five Coffee</h3>
+          <p>The best little coffee spot on the river. Head south on Elk Mountain Rd to Riverside Dr.</p>
+          <span class="spot-dist">~1 mi</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">🍖</div>
+        <div class="spot-info">
+          <h3>River Rhapsody Beer Co.</h3>
+          <p>Some of the best BBQ of your life plus tasty microbrews. A true local's joint.</p>
+          <span class="spot-dist">~1 mi</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">🍺</div>
+        <div class="spot-info">
+          <h3>Zillicoah Brewery</h3>
+          <p>Great brews on the river. Super fun spot — kids allowed on Sundays only.</p>
+          <span class="spot-dist">~1.5 mi</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">🌳</div>
+        <div class="spot-info">
+          <h3>Woodfin Riverside Park</h3>
+          <p>Beautiful stroll along Riverside Dr. Dog-friendly!</p>
+          <span class="spot-dist">~1.5 mi</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">🎡</div>
+        <div class="spot-info">
+          <h3>Silver Line Park</h3>
+          <p>Great park for kids, right on the river.</p>
+          <span class="spot-dist">~1.5 mi</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">🏞️</div>
+        <div class="spot-info">
+          <h3>Beaver Lake</h3>
+          <p>Stroll, fish, or paddle. Daily boating &amp; fishing permits available. No dogs allowed.</p>
+          <span class="spot-dist">~2 mi</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">🎨</div>
+        <div class="spot-info">
+          <h3>River Arts District</h3>
+          <p>Continue along the river for tons of restaurants, breweries, art studios, and the river greenway!</p>
+          <span class="spot-dist">Nearby</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT & EMERGENCY ──────────────── -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <div class="section-icon red">📞</div>
+        <h2 class="section-title">Contact &amp; Emergency</h2>
+      </div>
+
+      <div class="contact-card">
+        <h3>Justin Pitt, Host</h3>
+        <p>Please reach out if you need anything at all, especially in an emergency.</p>
+        <a href="tel:+16197635872">(619) 763-5872</a>
+      </div>
+
+      <div class="emergency-grid">
+        <div class="emergency-item">
+          <div class="em-label">Emergency</div>
+          <a href="tel:911">911</a>
+        </div>
+        <div class="emergency-item">
+          <div class="em-label">Local Fire Dept.</div>
+          <a href="tel:+18282595636">(828) 259-5636</a>
+        </div>
+        <div class="emergency-item">
+          <div class="em-label">Non-Emergency Police</div>
+          <a href="tel:+18282521110">(828) 252-1110</a>
+        </div>
+        <div class="emergency-item">
+          <div class="em-label">Asheville Taxi</div>
+          <a href="tel:+18283331976">(828) 333-1976</a>
+        </div>
+        <div class="emergency-item">
+          <div class="em-label">Range Urgent Care</div>
+          <a href="tel:+18284120327">(828) 412-0327</a>
+        </div>
+        <div class="emergency-item">
+          <div class="em-label">Mission Hospital</div>
+          <a href="tel:+18282131111">(828) 213-1111</a>
+        </div>
+        <div class="emergency-item" style="grid-column: 1 / -1;">
+          <div class="em-label">Poison Control</div>
+          <a href="tel:+18002221222">(800) 222-1222</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /content -->
+</div><!-- /page-home -->
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2: HOT TUB GUIDE
+     ══════════════════════════════════════════════ -->
+<div class="page" id="page-hottub">
+
+  <div class="hottub-page-header" id="top-hottub">
+    <div class="hero-badge" style="background: var(--accent-warm-light); color: var(--accent-warm);">Hot Tub Guide</div>
+    <h1>AquaRest AR-600</h1>
+    <p>Everything you need to know to enjoy the hot tub</p>
+  </div>
+
+  <div class="content">
+
+    <!-- ── IMPORTANT: READ FIRST ────────────── -->
+    <div class="alert alert-danger mb-16">
+      <div class="alert-heading">⚠️ Read This First — #1 Guest Issue</div>
+      The most common problem guests experience is the hot tub not being hot enough. This is almost always caused by one of two things:
+      <br><br>
+      <strong>1. The spa was accidentally put into Economy (EC) or Sleep (SL) mode.</strong> In these modes, the spa barely heats. It should be in <strong>Standard (ST)</strong> mode at all times.
+      <br><br>
+      <strong>2. The temperature was set too late in the day.</strong> This spa heats at roughly 1–2°F per hour. If the water is at 80°F and you want 102°F, that's about 12–15 hours. Plan ahead!
+    </div>
+
+    <!-- ── YOUR CONTROL PANEL ───────────────── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon warm">🎛️</div>
+        <h2 class="section-title">Your Control Panel</h2>
+      </div>
+
+      <p class="text-muted mb-16">The control panel is on the rim of the hot tub. It has four buttons and a temperature display.</p>
+
+      <!-- Visual diagram -->
+      <div class="control-panel-visual">
+        <div class="panel-label">AquaRest AR-600 Control Panel</div>
+        <div class="panel-body">
+          <div class="panel-display" id="demo-display">102</div>
+          <div class="panel-buttons">
+            <div class="panel-btn warm">
+              <span class="btn-arrow">▲</span>
+              <span class="panel-btn-label">WARM</span>
+            </div>
+            <div class="panel-btn jets">
+              JETS
+              <span class="panel-btn-label">JETS</span>
+            </div>
+            <div class="panel-btn cool">
+              <span class="btn-arrow">▼</span>
+              <span class="panel-btn-label">COOL</span>
+            </div>
+            <div class="panel-btn light">
+              ☀
+              <span class="panel-btn-label">LIGHT</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+          <div class="panel-annotation">
+            <div class="annotation-dot orange"></div>
+            Display = current water temp
+          </div>
+          <div class="panel-annotation">
+            <div class="annotation-dot green"></div>
+            Should read "ST" (Standard mode)
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Button Functions</div>
+        <div class="info-row">
+          <span class="info-label">▲ WARM</span>
+          <span class="info-value">Raise set temperature (+1°F)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">▼ COOL</span>
+          <span class="info-value">Lower set temperature (-1°F)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">JETS</span>
+          <span class="info-value">Turn jets on/off</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">☀ LIGHT</span>
+          <span class="info-value">Toggle the spa light</span>
+        </div>
+        <p class="mt-12 text-sm text-muted">When you press WARM or COOL once, the display briefly shows the <em>set</em> temperature. After 5 seconds, it goes back to showing the <em>current</em> water temperature.</p>
+      </div>
+    </section>
+
+    <!-- ── HEATING MODES ────────────────────── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon red">🌡️</div>
+        <h2 class="section-title">Heating Modes — Very Important</h2>
+      </div>
+
+      <div class="alert alert-warning mb-16">
+        <div class="alert-heading">⚡ How Modes Get Changed Accidentally</div>
+        The heating mode changes when you press <strong>WARM (or COOL) followed by JETS</strong>. If you're adjusting the temperature and accidentally bump JETS right after, you may switch out of Standard mode without realizing it. If the display briefly flashes <strong>EC</strong> or <strong>SL</strong>, the spa is no longer in Standard heating mode.
+      </div>
+
+      <div class="mode-cards">
+        <div class="mode-card good">
+          <div class="mode-code">ST</div>
+          <div class="mode-name">Standard</div>
+          <div class="mode-desc">Heats whenever needed to maintain your set temp. <strong>This is the correct mode.</strong></div>
+        </div>
+        <div class="mode-card bad">
+          <div class="mode-code">EC</div>
+          <div class="mode-name">Economy</div>
+          <div class="mode-desc">Only heats during filter cycles. The spa will feel cold most of the time.</div>
+        </div>
+        <div class="mode-card bad">
+          <div class="mode-code">SL</div>
+          <div class="mode-name">Sleep</div>
+          <div class="mode-desc">Drops the set temp by 20°F and only heats during filters. Very cold.</div>
+        </div>
+      </div>
+
+      <div class="alert alert-success">
+        <div class="alert-heading">✅ How to Get Back to Standard Mode</div>
+        If you see <strong>EC</strong> or <strong>SL</strong> on the display, press <strong>WARM</strong> (or COOL), then <strong>JETS</strong> — repeat this until the display shows <strong>ST</strong>. It cycles through: ST → EC → SL → ST. Keep pressing until you see <strong>ST</strong>.
+      </div>
+    </section>
+
+    <!-- ── STEP BY STEP ─────────────────────── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon green">📝</div>
+        <h2 class="section-title">How to Use the Hot Tub</h2>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Check the Mode</h3>
+          <p>Press WARM then JETS. The display should show <strong>ST</strong> (Standard). If it shows EC or SL, keep pressing WARM then JETS until you see ST.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Set Your Temperature</h3>
+          <p>Press WARM to increase or COOL to decrease. We recommend <strong>100–103°F</strong>. After 5 seconds the display returns to showing the current water temp. Do not exceed 104°F.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Keep the Cover On While Heating</h3>
+          <p>The spa heats much faster with the cover on and the air control valves (dials on the rim) turned off. Expect roughly <strong>1–2°F per hour</strong>. Plan ahead — set your temperature early in the day!</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Rinse Off Before Entering</h3>
+          <p>Shower or rinse off any lotions, oils, sunscreen, or perfumes. This keeps the water clean and prevents foaming and chemical imbalances.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Enjoy Your Soak</h3>
+          <p>Press JETS for massage jets, and LIGHT for the LED light. Keep soaks to <strong>15 minutes max</strong>, then take a break. Stay hydrated!</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3>When You're Done</h3>
+          <p><strong>Always replace the cover</strong> and make sure it's secure. This keeps the heat in, saves energy, and keeps debris out.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HEATING TIME EXPECTATIONS ─────────── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon warm">⏱️</div>
+        <h2 class="section-title">Heating Time Expectations</h2>
+      </div>
+
+      <div class="card">
+        <p>This is a plug-and-play spa with friction heating. It heats gradually — <strong>roughly 1–2°F per hour</strong> with the cover on. Here's what to expect:</p>
+      </div>
+
+      <div class="timing-grid">
+        <div class="timing-item">
+          <div class="timing-temp">5°F</div>
+          <div class="timing-label">~3–4 hours</div>
+        </div>
+        <div class="timing-item">
+          <div class="timing-temp">10°F</div>
+          <div class="timing-label">~6–8 hours</div>
+        </div>
+        <div class="timing-item">
+          <div class="timing-temp">20°F</div>
+          <div class="timing-label">~12–16 hours</div>
+        </div>
+      </div>
+
+      <div class="alert alert-info mt-16">
+        <div class="alert-heading">💡 Pro Tip: Plan Ahead</div>
+        If you want to soak in the evening, set the temperature in the morning (or even the night before). We try to keep the spa at temperature between guest stays, but during colder months it may need extra time. The water temperature when you arrive depends on the season.
+      </div>
+
+      <div class="card mt-16">
+        <div class="card-title">Why Are the Jets Running Non-Stop?</div>
+        <p>This is <strong>completely normal</strong>. When the spa is heating toward its set temperature, the pump/jets run continuously to generate friction heat. You won't be able to turn them off until the water reaches the set temperature. This is how plug-and-play spas work — it's not a malfunction!</p>
+      </div>
+    </section>
+
+    <!-- ── TROUBLESHOOTING ──────────────────── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon red">🔧</div>
+        <h2 class="section-title">Troubleshooting</h2>
+      </div>
+
+      <div class="troubleshoot-item" onclick="this.classList.toggle('open')">
+        <div class="troubleshoot-q">
+          The water isn't getting hot enough
+          <span class="arrow">▼</span>
+        </div>
+        <div class="troubleshoot-a">
+          <strong>Most likely cause: wrong heating mode.</strong> Check the display — press WARM then JETS. If you see <strong>EC</strong> (Economy) or <strong>SL</strong> (Sleep), keep pressing WARM then JETS until it shows <strong>ST</strong> (Standard).<br><br>
+          Also make sure: the cover is on, the air control dials on the rim are turned off (closed), and the set temperature is high enough (press WARM once to check). Remember, heating takes 1–2°F per hour.
+        </div>
+      </div>
+
+      <div class="troubleshoot-item" onclick="this.classList.toggle('open')">
+        <div class="troubleshoot-q">
+          The jets won't turn off
+          <span class="arrow">▼</span>
+        </div>
+        <div class="troubleshoot-a">
+          If the current water temperature is below the set temperature, the pump runs continuously to heat the water. This is normal. The jets will stop once the water reaches the set temperature. If the jets don't stop after the temp is reached, try pressing the JETS button to toggle them off.
+        </div>
+      </div>
+
+      <div class="troubleshoot-item" onclick="this.classList.toggle('open')">
+        <div class="troubleshoot-q">
+          The display shows "HH" or "OH"
+          <span class="arrow">▼</span>
+        </div>
+        <div class="troubleshoot-a">
+          This means the water has overheated. <strong>Do NOT enter the water.</strong> Remove the cover and let the water cool down. The spa should automatically reset when the temperature drops to a safe level. If it doesn't reset, press any button. If the error persists, contact Justin at <a href="tel:+16197635872" class="phone-link">(619) 763-5872</a>.
+        </div>
+      </div>
+
+      <div class="troubleshoot-item" onclick="this.classList.toggle('open')">
+        <div class="troubleshoot-q">
+          The display shows "dr" or "dY"
+          <span class="arrow">▼</span>
+        </div>
+        <div class="troubleshoot-a">
+          These indicate a water flow problem. Check the water level — it should be 6-8 inches below the rim and above all jet openings. If the water level is fine, the pump may need to be primed. Contact Justin for help at <a href="tel:+16197635872" class="phone-link">(619) 763-5872</a>.
+        </div>
+      </div>
+
+      <div class="troubleshoot-item" onclick="this.classList.toggle('open')">
+        <div class="troubleshoot-q">
+          No jets are working at all
+          <span class="arrow">▼</span>
+        </div>
+        <div class="troubleshoot-a">
+          Check that the spa is plugged in and the GFCI breaker hasn't tripped (look at the plug — it may have a reset button). If the GFCI tripped, press the reset button on the plug. If it trips again immediately, do not continue — contact Justin.
+        </div>
+      </div>
+
+      <div class="troubleshoot-item" onclick="this.classList.toggle('open')">
+        <div class="troubleshoot-q">
+          One jet isn't working
+          <span class="arrow">▼</span>
+        </div>
+        <div class="troubleshoot-a">
+          Each jet is individually adjustable. Try turning the jet face counter-clockwise to open it, and open the air control dial (venturi) on the rim. The jets are designed so you can control pressure at each one independently.
+        </div>
+      </div>
+
+      <div class="troubleshoot-item" onclick="this.classList.toggle('open')">
+        <div class="troubleshoot-q">
+          The display is blank / nothing works
+          <span class="arrow">▼</span>
+        </div>
+        <div class="troubleshoot-a">
+          The spa likely lost power. Check the GFCI plug and the circuit breaker. Press the reset button on the GFCI plug. If you can't resolve it, contact Justin at <a href="tel:+16197635872" class="phone-link">(619) 763-5872</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SAFETY ───────────────────────────── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon red">🛡️</div>
+        <h2 class="section-title">Safety Guidelines</h2>
+      </div>
+
+      <div class="card">
+        <ul class="check-list">
+          <li>Water temperature should never exceed 104°F</li>
+          <li>Children must be supervised at all times</li>
+          <li>Keep soaks to 15 minutes, then take a break</li>
+          <li>Stay hydrated — drink water, not alcohol</li>
+          <li>Alcohol use in or around the spa is strongly discouraged</li>
+          <li>Pregnant women should consult a doctor; recommended max is 100°F</li>
+          <li>Anyone with heart conditions, blood pressure issues, or on medications should consult their doctor first</li>
+          <li>Do not use electrical appliances near the spa</li>
+          <li>Do not use glass near the spa — plastic/silicone drinkware only</li>
+          <li>If you feel dizzy, lightheaded, or nauseous, exit the spa immediately</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── STILL NEED HELP ──────────────────── -->
+    <div class="contact-card">
+      <h3>Still Need Help?</h3>
+      <p>Don't hesitate to reach out — I'm happy to walk you through anything over the phone.</p>
+      <a href="tel:+16197635872">(619) 763-5872</a>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /page-hottub -->
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3: QR CODES
+     ══════════════════════════════════════════════ -->
+<div class="page" id="page-qr">
+
+  <div class="qr-page-header">
+    <div class="hero-badge" style="background: #EDE7F6; color: #5E35B1;">Host Tools</div>
+    <h1>QR Code Generator</h1>
+    <p>Print these and place them around the property so guests can easily scan to access the guides on their phones.</p>
+  </div>
+
+  <div class="content">
+
+    <!-- URL input -->
+    <div class="qr-url-input-wrap">
+      <label>Your GitHub Pages URL</label>
+      <div class="qr-url-row">
+        <input type="text" class="qr-url-input" id="qrBaseUrl" placeholder="https://justin-pitt.github.io/skyland-haven/" value="https://justin-pitt.github.io/skyland-haven/">
+        <button class="qr-generate-btn" onclick="generateAllQR()">Generate QR Codes</button>
+      </div>
+      <p class="text-sm text-muted mt-8">Enter the URL where this site is hosted. The QR codes below will update automatically.</p>
+    </div>
+
+    <!-- Pre-built QR cards -->
+    <div class="qr-cards-grid" id="qrCardsGrid">
+
+      <div class="qr-card">
+        <div class="qr-card-label">Scan for</div>
+        <div class="qr-card-title">Property Guide</div>
+        <canvas id="qr-home" width="200" height="200"></canvas>
+        <div class="qr-card-url" id="qr-home-url"></div>
+        <button class="qr-dl-btn" onclick="downloadQR('qr-home', 'skyland-haven-property-guide-qr.png')">↓ Download PNG</button>
+      </div>
+
+      <div class="qr-card">
+        <div class="qr-card-label">Scan for</div>
+        <div class="qr-card-title">Hot Tub Guide</div>
+        <canvas id="qr-hottub" width="200" height="200"></canvas>
+        <div class="qr-card-url" id="qr-hottub-url"></div>
+        <button class="qr-dl-btn" onclick="downloadQR('qr-hottub', 'skyland-haven-hot-tub-guide-qr.png')">↓ Download PNG</button>
+      </div>
+
+    </div>
+
+    <!-- Custom URL QR -->
+    <div class="qr-custom-card">
+      <div class="card-title" style="justify-content: center; margin-bottom: 12px;">🔗 Custom QR Code</div>
+      <p class="text-sm text-muted mb-16">Generate a QR code for any URL — your Airbnb listing, review page, local restaurant menu, etc.</p>
+      <div class="qr-url-row" style="max-width: 500px; margin: 0 auto 20px;">
+        <input type="text" class="qr-url-input" id="qrCustomUrl" placeholder="https://airbnb.com/rooms/...">
+        <button class="qr-generate-btn" onclick="generateCustomQR()">Generate</button>
+      </div>
+      <canvas id="qr-custom" width="200" height="200" style="display:none;"></canvas>
+      <div id="qr-custom-url" class="qr-card-url" style="display:none; max-width: 400px; margin: 0 auto 12px;"></div>
+      <button class="qr-dl-btn" id="qr-custom-dl" style="display:none;" onclick="downloadQR('qr-custom', 'custom-qr.png')">↓ Download PNG</button>
+    </div>
+
+    <!-- Print button -->
+    <div class="qr-print-section">
+      <p class="text-muted mb-16 text-sm">Print the Property Guide and Hot Tub Guide QR cards on a single page to cut out and laminate.</p>
+      <button class="qr-print-btn" onclick="printQR()">🖨️ Print QR Codes</button>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         PRINTABLE SIGNS
+         ═══════════════════════════════════════ -->
+    <div class="signs-header">
+      <h2>📋 Printable Signs</h2>
+      <p>Print these, laminate them, and place around the property. Each sign is designed for standard letter paper (8.5 × 11").</p>
+    </div>
+
+    <div class="signs-grid">
+
+      <!-- ── SIGN 1: HOT TUB ─────────────────── -->
+      <div class="sign-preview-wrap">
+        <div class="sign-preview-label">
+          🛁 Sign 1
+          <span class="sign-location">— Place near the hot tub</span>
+        </div>
+        <div class="sign-frame sign-hottub" id="sign-hottub">
+          <div class="sign-hottub-header">
+            <h2>Hot Tub Quick Guide</h2>
+            <p>AquaRest AR-600 · Skyland Haven</p>
+          </div>
+          <div class="sign-hottub-body">
+            <div class="sign-alert">
+              <div class="sign-alert-title">⚠️ Not Heating? Check the Mode First!</div>
+              <div class="sign-alert-text">
+                If the water isn't getting hot, the spa is likely in the wrong heating mode. Press <strong>WARM</strong> then <strong>JETS</strong> and look at the display. It should say <strong>ST</strong> (Standard). If it says EC or SL, keep pressing WARM → JETS until you see <strong>ST</strong>.
+              </div>
+            </div>
+
+            <div class="sign-modes-row">
+              <div class="sign-mode good">
+                <div class="sm-code">ST</div>
+                <div class="sm-name">Standard ✓</div>
+              </div>
+              <div class="sign-mode bad">
+                <div class="sm-code">EC</div>
+                <div class="sm-name">Economy ✗</div>
+              </div>
+              <div class="sign-mode bad">
+                <div class="sm-code">SL</div>
+                <div class="sm-name">Sleep ✗</div>
+              </div>
+            </div>
+
+            <ol class="sign-steps">
+              <li>
+                <div class="sign-step-num">1</div>
+                <div>Verify the display shows <strong>ST</strong> mode (see above).</div>
+              </li>
+              <li>
+                <div class="sign-step-num">2</div>
+                <div>Press <strong>▲ WARM</strong> to set temp to <strong>100–103°F</strong>. Display returns to current temp after 5 sec.</div>
+              </li>
+              <li>
+                <div class="sign-step-num">3</div>
+                <div><strong>Keep the cover on</strong> while heating. Close the air dials on the rim. Heats ~1–2°F/hour.</div>
+              </li>
+              <li>
+                <div class="sign-step-num">4</div>
+                <div><strong>Rinse off</strong> before entering — no lotions, oils, or sunscreen. Keeps water clean!</div>
+              </li>
+              <li>
+                <div class="sign-step-num">5</div>
+                <div>Soak for <strong>15 min max</strong>, then take a break. Stay hydrated. No glass near the tub.</div>
+              </li>
+              <li>
+                <div class="sign-step-num">6</div>
+                <div><strong>Replace the cover</strong> when done. Make sure it's snug and secure.</div>
+              </li>
+            </ol>
+
+            <div class="sign-qr-footer">
+              <canvas id="sign-qr-hottub" width="80" height="80"></canvas>
+              <div class="sign-qr-footer-text">
+                <strong>Scan for the full Hot Tub Guide</strong><br>
+                Troubleshooting, error codes, safety info & more.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sign-preview-actions">
+          <button class="sign-print-btn primary" onclick="printSign('sign-hottub')">🖨️ Print This Sign</button>
+          <button class="sign-print-btn secondary" onclick="downloadSign('sign-hottub', 'skyland-hot-tub-sign')">↓ Save as Image</button>
+        </div>
+      </div>
+
+      <!-- ── SIGN 2: WIFI & WELCOME ──────────── -->
+      <div class="sign-preview-wrap">
+        <div class="sign-preview-label">
+          📶 Sign 2
+          <span class="sign-location">— Place in kitchen or living room</span>
+        </div>
+        <div class="sign-frame sign-wifi" id="sign-wifi">
+          <div class="sign-wifi-header">
+            <div class="sign-wifi-icon">📶</div>
+            <h2>Welcome to<br>Skyland Haven</h2>
+          </div>
+          <div class="sign-wifi-body">
+            <div class="sign-wifi-field">
+              <div class="swf-label">WiFi Network</div>
+              <div class="swf-value">Skyland Haven</div>
+            </div>
+            <div class="sign-wifi-field">
+              <div class="swf-label">Password</div>
+              <div class="swf-value">Welove5*reviews</div>
+            </div>
+            <div class="sign-wifi-divider"></div>
+            <div class="sign-wifi-qr-wrap">
+              <canvas id="sign-qr-wifi" width="120" height="120"></canvas>
+              <p>Scan for the full Property Guide<br>with house rules, local spots & more</p>
+            </div>
+          </div>
+        </div>
+        <div class="sign-preview-actions">
+          <button class="sign-print-btn primary" onclick="printSign('sign-wifi')">🖨️ Print This Sign</button>
+          <button class="sign-print-btn secondary" onclick="downloadSign('sign-wifi', 'skyland-wifi-sign')">↓ Save as Image</button>
+        </div>
+      </div>
+
+      <!-- ── SIGN 3: CHECKOUT ────────────────── -->
+      <div class="sign-preview-wrap">
+        <div class="sign-preview-label">
+          🚪 Sign 3
+          <span class="sign-location">— Place on fridge or front door</span>
+        </div>
+        <div class="sign-frame sign-checkout" id="sign-checkout">
+          <div class="sign-checkout-header">
+            <h2>Checkout Reminders</h2>
+            <p>Before 10:00 AM · Thank you!</p>
+          </div>
+          <div class="sign-checkout-body">
+            <ul class="sign-checkout-list">
+              <li><div class="sign-checkbox"></div> Leave used towels in the bathtub</li>
+              <li><div class="sign-checkbox"></div> Load &amp; start the dishwasher</li>
+              <li><div class="sign-checkbox"></div> Wash &amp; put away any other dishes</li>
+              <li><div class="sign-checkbox"></div> Take trash &amp; recycling to outdoor bins</li>
+              <li><div class="sign-checkbox"></div> Set A/C to 75°F or Heat to 68°F</li>
+              <li><div class="sign-checkbox"></div> Replace the hot tub cover</li>
+              <li><div class="sign-checkbox"></div> Log out of streaming apps on TVs</li>
+              <li><div class="sign-checkbox"></div> Remove all personal belongings</li>
+              <li><div class="sign-checkbox"></div> Lock all doors &amp; windows</li>
+            </ul>
+          </div>
+          <div class="sign-checkout-footer">
+            Questions? Text or call <strong>Justin · (619) 763-5872</strong>
+          </div>
+        </div>
+        <div class="sign-preview-actions">
+          <button class="sign-print-btn primary" onclick="printSign('sign-checkout')">🖨️ Print This Sign</button>
+          <button class="sign-print-btn secondary" onclick="downloadSign('sign-checkout', 'skyland-checkout-sign')">↓ Save as Image</button>
+        </div>
+      </div>
+
+    </div><!-- /signs-grid -->
+
+  </div>
+</div><!-- /page-qr -->
+
+
+<!-- ═══ FOOTER ═══════════════════════════════ -->
+<div class="footer">
+  <p>Skyland Haven · Woodfin, NC · Hosted by Justin</p>
+</div>
+
+<!-- BACK TO TOP -->
+<a href="#top" class="back-top" id="backTop">↑</a>
+
+<script>
+  // ══════════════════════════════════════════════
+  // Minimal QR Code Generator (pure JS, no dependencies)
+  // Based on QR Code specification ISO/IEC 18004
+  // ══════════════════════════════════════════════
+  const QRCode = (() => {
+    // Galois field and polynomial math for error correction
+    const GF256 = (() => {
+      const exp = new Uint8Array(512);
+      const log = new Uint8Array(256);
+      let x = 1;
+      for (let i = 0; i < 255; i++) {
+        exp[i] = x; log[x] = i;
+        x = (x << 1) ^ (x & 128 ? 0x11d : 0);
+      }
+      for (let i = 255; i < 512; i++) exp[i] = exp[i - 255];
+      return { exp, log };
+    })();
+
+    function polyMul(a, b) {
+      const r = new Uint8Array(a.length + b.length - 1);
+      for (let i = 0; i < a.length; i++)
+        for (let j = 0; j < b.length; j++)
+          r[i + j] ^= GF256.exp[(GF256.log[a[i]] + GF256.log[b[j]]) % 255];
+      return r;
+    }
+
+    function polyRem(dividend, divisor) {
+      const result = new Uint8Array(dividend);
+      for (let i = 0; i < dividend.length - divisor.length + 1; i++) {
+        if (result[i] === 0) continue;
+        const factor = GF256.log[result[i]];
+        for (let j = 0; j < divisor.length; j++)
+          result[i + j] ^= GF256.exp[(factor + GF256.log[divisor[j]]) % 255];
+      }
+      return result.slice(dividend.length - divisor.length + 1);
+    }
+
+    function genPoly(n) {
+      let g = new Uint8Array([1]);
+      for (let i = 0; i < n; i++)
+        g = polyMul(g, new Uint8Array([1, GF256.exp[i]]));
+      return g;
+    }
+
+    // QR code data structures
+    const EC_CODEWORDS = [
+      [7,10,13,17,20,26,36,40,48,56,68,76,84,96,112,120,132,144,156,164,180,196,224,224,252,270,300,312,336,360,390,420,450,480,510,540,570,570,600,630],
+      [10,16,22,28,36,44,64,72,88,96,112,132,148,168,192,208,224,240,268,280,308,328,364,364,412,436,484,504,546,576,624,660,702,742,790,838,878,878,928,980],
+      [13,22,30,36,44,56,80,96,112,132,152,176,198,216,240,280,308,324,364,396,432,464,520,520,580,620,680,712,764,816,880,936,996,1056,1120,1176,1224,1224,1290,1358],
+      [17,28,36,44,56,72,100,116,140,160,188,224,248,280,308,352,392,416,456,504,548,592,656,656,732,780,852,900,960,1028,1108,1176,1250,1328,1410,1490,1552,1552,1632,1714]
+    ];
+
+    const DATA_CODEWORDS_TOTAL = [
+      26,44,70,100,134,172,196,242,292,346,404,466,532,581,655,733,815,901,991,1085,1156,1258,1364,1474,1588,1706,1828,1921,2051,2185,2323,2465,2611,2761,2876,3034,3196,3362,3532,3706
+    ];
+
+    const ALIGNMENT_POSITIONS = [
+      [], [6,18], [6,22], [6,26], [6,30], [6,34],
+      [6,22,38], [6,24,42], [6,26,46], [6,28,50], [6,30,54], [6,32,58], [6,34,62],
+      [6,26,46,66], [6,26,48,70], [6,26,50,74], [6,30,54,78], [6,30,56,82], [6,30,58,86], [6,34,62,90],
+      [6,28,50,72,94], [6,26,50,74,98], [6,30,54,78,102], [6,28,54,80,106], [6,32,58,84,110], [6,30,58,86,114], [6,34,62,90,118],
+      [6,26,50,74,98,122], [6,30,54,78,102,126], [6,26,52,78,104,130], [6,30,56,82,108,134], [6,34,60,86,112,138], [6,30,58,86,114,142], [6,34,62,90,118,146],
+      [6,30,54,78,102,126,150], [6,24,50,76,102,128,154], [6,28,54,80,106,132,158], [6,32,58,84,110,136,162], [6,26,54,82,110,138,166], [6,30,58,86,114,142,170]
+    ];
+
+    function getVersion(text, ecLevel) {
+      const byteLen = new TextEncoder().encode(text).length;
+      for (let v = 1; v <= 40; v++) {
+        const totalData = DATA_CODEWORDS_TOTAL[v - 1] - EC_CODEWORDS[ecLevel][v - 1];
+        const charCountBits = v <= 9 ? 8 : 16;
+        const availBits = totalData * 8;
+        const neededBits = 4 + charCountBits + byteLen * 8;
+        if (neededBits <= availBits) return v;
+      }
+      return -1;
+    }
+
+    function encodeData(text, version, ecLevel) {
+      const bytes = new TextEncoder().encode(text);
+      const charCountBits = version <= 9 ? 8 : 16;
+      const totalDataCW = DATA_CODEWORDS_TOTAL[version - 1] - EC_CODEWORDS[ecLevel][version - 1];
+
+      let bits = '';
+      bits += '0100'; // byte mode
+      bits += bytes.length.toString(2).padStart(charCountBits, '0');
+      for (const b of bytes) bits += b.toString(2).padStart(8, '0');
+
+      // terminator
+      const capacity = totalDataCW * 8;
+      const termLen = Math.min(4, capacity - bits.length);
+      bits += '0'.repeat(termLen);
+      if (bits.length % 8) bits += '0'.repeat(8 - (bits.length % 8));
+
+      // padding
+      const pads = [0b11101100, 0b00010001];
+      let pi = 0;
+      while (bits.length < capacity) {
+        bits += pads[pi].toString(2).padStart(8, '0');
+        pi ^= 1;
+      }
+
+      const data = new Uint8Array(totalDataCW);
+      for (let i = 0; i < totalDataCW; i++)
+        data[i] = parseInt(bits.substr(i * 8, 8), 2);
+
+      return data;
+    }
+
+    function addErrorCorrection(data, version, ecLevel) {
+      const totalCW = DATA_CODEWORDS_TOTAL[version - 1];
+      const ecCW = EC_CODEWORDS[ecLevel][version - 1];
+      const dataCW = totalCW - ecCW;
+
+      // Simplified: single block for small versions
+      const ecPerBlock = ecCW;
+      const gp = genPoly(ecPerBlock);
+
+      const msgPoly = new Uint8Array(dataCW + ecPerBlock);
+      msgPoly.set(data, 0);
+      const ec = polyRem(msgPoly, gp);
+
+      const result = new Uint8Array(totalCW);
+      result.set(data, 0);
+      result.set(ec, dataCW);
+      return result;
+    }
+
+    function createMatrix(version) {
+      const size = version * 4 + 17;
+      const matrix = Array.from({ length: size }, () => new Uint8Array(size));
+      const reserved = Array.from({ length: size }, () => new Uint8Array(size));
+
+      function setModule(r, c, val) {
+        if (r >= 0 && r < size && c >= 0 && c < size) {
+          matrix[r][c] = val ? 1 : 0;
+          reserved[r][c] = 1;
+        }
+      }
+
+      // Finder patterns
+      function finderPattern(row, col) {
+        for (let dr = -1; dr <= 7; dr++)
+          for (let dc = -1; dc <= 7; dc++) {
+            const r = row + dr, c = col + dc;
+            if (r < 0 || r >= size || c < 0 || c >= size) continue;
+            const inOuter = dr >= 0 && dr <= 6 && dc >= 0 && dc <= 6;
+            const inInner = dr >= 2 && dr <= 4 && dc >= 2 && dc <= 4;
+            const isRing = dr === 0 || dr === 6 || dc === 0 || dc === 6;
+            setModule(r, c, (inInner || (inOuter && isRing)) ? 1 : 0);
+          }
+      }
+      finderPattern(0, 0);
+      finderPattern(0, size - 7);
+      finderPattern(size - 7, 0);
+
+      // Timing patterns
+      for (let i = 8; i < size - 8; i++) {
+        setModule(6, i, i % 2 === 0 ? 1 : 0);
+        setModule(i, 6, i % 2 === 0 ? 1 : 0);
+      }
+
+      // Alignment patterns
+      if (version >= 2) {
+        const pos = ALIGNMENT_POSITIONS[version - 1];
+        for (const r of pos)
+          for (const c of pos) {
+            if (reserved[r][c]) continue;
+            for (let dr = -2; dr <= 2; dr++)
+              for (let dc = -2; dc <= 2; dc++)
+                setModule(r + dr, c + dc,
+                  (Math.abs(dr) === 2 || Math.abs(dc) === 2 || (dr === 0 && dc === 0)) ? 1 : 0);
+          }
+      }
+
+      // Dark module
+      setModule(size - 8, 8, 1);
+
+      // Reserve format info areas
+      for (let i = 0; i < 8; i++) {
+        if (!reserved[8][i]) { reserved[8][i] = 1; }
+        if (!reserved[i][8]) { reserved[i][8] = 1; }
+        if (!reserved[8][size - 1 - i]) { reserved[8][size - 1 - i] = 1; }
+        if (!reserved[size - 1 - i][8]) { reserved[size - 1 - i][8] = 1; }
+      }
+      reserved[8][8] = 1;
+
+      // Reserve version info for v >= 7
+      if (version >= 7) {
+        for (let i = 0; i < 6; i++)
+          for (let j = 0; j < 3; j++) {
+            reserved[i][size - 11 + j] = 1;
+            reserved[size - 11 + j][i] = 1;
+          }
+      }
+
+      return { matrix, reserved, size };
+    }
+
+    function placeData(matrix, reserved, size, codewords) {
+      let bitIdx = 0;
+      const totalBits = codewords.length * 8;
+      let col = size - 1;
+      let goingUp = true;
+
+      while (col >= 0) {
+        if (col === 6) col--;
+        const rows = goingUp
+          ? Array.from({ length: size }, (_, i) => size - 1 - i)
+          : Array.from({ length: size }, (_, i) => i);
+
+        for (const row of rows) {
+          for (let dc = 0; dc <= 1; dc++) {
+            const c = col - dc;
+            if (c < 0 || reserved[row][c]) continue;
+            if (bitIdx < totalBits) {
+              const byteIdx = Math.floor(bitIdx / 8);
+              const bitPos = 7 - (bitIdx % 8);
+              matrix[row][c] = (codewords[byteIdx] >> bitPos) & 1;
+              bitIdx++;
+            }
+          }
+        }
+        col -= 2;
+        goingUp = !goingUp;
+      }
+    }
+
+    function applyMask(matrix, reserved, size, maskNum) {
+      const maskFns = [
+        (r, c) => (r + c) % 2 === 0,
+        (r, c) => r % 2 === 0,
+        (r, c) => c % 3 === 0,
+        (r, c) => (r + c) % 3 === 0,
+        (r, c) => (Math.floor(r / 2) + Math.floor(c / 3)) % 2 === 0,
+        (r, c) => ((r * c) % 2 + (r * c) % 3) === 0,
+        (r, c) => ((r * c) % 2 + (r * c) % 3) % 2 === 0,
+        (r, c) => ((r + c) % 2 + (r * c) % 3) % 2 === 0,
+      ];
+      const fn = maskFns[maskNum];
+      for (let r = 0; r < size; r++)
+        for (let c = 0; c < size; c++)
+          if (!reserved[r][c] && fn(r, c))
+            matrix[r][c] ^= 1;
+    }
+
+    function placeFormatInfo(matrix, size, ecLevel, maskNum) {
+      const ecBits = [1, 0, 3, 2][ecLevel]; // M, L, H, Q mapping
+      let data = (ecBits << 3) | maskNum;
+      let rem = data;
+      for (let i = 0; i < 10; i++) rem = (rem << 1) ^ ((rem >> 9) ? 0x537 : 0);
+      const bits = ((data << 10) | rem) ^ 0x5412;
+
+      const positions = [
+        // Around top-left finder
+        [0, 8], [1, 8], [2, 8], [3, 8], [4, 8], [5, 8], [7, 8], [8, 8],
+        [8, 7], [8, 5], [8, 4], [8, 3], [8, 2], [8, 1], [8, 0]
+      ];
+      for (let i = 0; i < 15; i++)
+        matrix[positions[i][0]][positions[i][1]] = (bits >> i) & 1;
+
+      // Bottom-left and top-right
+      for (let i = 0; i < 7; i++)
+        matrix[size - 1 - i][8] = (bits >> i) & 1;
+      for (let i = 7; i < 15; i++)
+        matrix[8][size - 15 + i] = (bits >> i) & 1;
+    }
+
+    function generate(text, ecLevel = 0) { // 0=L, 1=M, 2=Q, 3=H
+      const version = getVersion(text, ecLevel);
+      if (version < 0) return null;
+
+      const data = encodeData(text, version, ecLevel);
+      const codewords = addErrorCorrection(data, version, ecLevel);
+      const { matrix, reserved, size } = createMatrix(version);
+
+      placeData(matrix, reserved, size, codewords);
+      applyMask(matrix, reserved, size, 0);
+      placeFormatInfo(matrix, size, ecLevel, 0);
+
+      return { matrix, size };
+    }
+
+    function renderToCanvas(canvas, text, options = {}) {
+      const { scale = 6, margin = 4, fg = '#1A1A1A', bg = '#FFFFFF', ecLevel = 1 } = options;
+      const qr = generate(text, ecLevel);
+      if (!qr) return false;
+
+      const { matrix, size } = qr;
+      const totalSize = (size + margin * 2) * scale;
+      canvas.width = totalSize;
+      canvas.height = totalSize;
+
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, totalSize, totalSize);
+
+      ctx.fillStyle = fg;
+      for (let r = 0; r < size; r++)
+        for (let c = 0; c < size; c++)
+          if (matrix[r][c])
+            ctx.fillRect((c + margin) * scale, (r + margin) * scale, scale, scale);
+
+      return true;
+    }
+
+    return { renderToCanvas };
+  })();
+
+  // ══════════════════════════════════════════════
+  // App Logic
+  // ══════════════════════════════════════════════
+
+  // ── Page switching ──
+  function switchPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    document.querySelector(`.nav-link[data-page="${page}"]`).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Auto-generate QR codes when visiting the QR page
+    if (page === 'qr') generateAllQR();
+  }
+
+  // ── Nav scroll shadow ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+    const btn = document.getElementById('backTop');
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // ── WiFi password tap-to-copy ──
+  document.querySelector('.wifi-pass')?.addEventListener('click', function() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(this.textContent);
+      const orig = this.textContent;
+      this.textContent = 'Copied!';
+      setTimeout(() => this.textContent = orig, 1500);
+    }
+  });
+
+  // ── QR Code Generation ──
+  function generateAllQR() {
+    const baseUrl = document.getElementById('qrBaseUrl').value.trim().replace(/\/$/, '');
+    if (!baseUrl) return;
+
+    const homeUrl = baseUrl;
+    const hottubUrl = baseUrl + '#hottub';
+
+    // Render QR codes (main cards)
+    QRCode.renderToCanvas(document.getElementById('qr-home'), homeUrl, { scale: 8, margin: 3, ecLevel: 1 });
+    QRCode.renderToCanvas(document.getElementById('qr-hottub'), hottubUrl, { scale: 8, margin: 3, ecLevel: 1 });
+
+    // Render QR codes on signs
+    QRCode.renderToCanvas(document.getElementById('sign-qr-hottub'), hottubUrl, { scale: 4, margin: 2, ecLevel: 1 });
+    QRCode.renderToCanvas(document.getElementById('sign-qr-wifi'), homeUrl, { scale: 5, margin: 2, ecLevel: 1 });
+
+    // Show URLs
+    document.getElementById('qr-home-url').textContent = homeUrl;
+    document.getElementById('qr-hottub-url').textContent = hottubUrl;
+  }
+
+  function generateCustomQR() {
+    const url = document.getElementById('qrCustomUrl').value.trim();
+    if (!url) return;
+
+    const canvas = document.getElementById('qr-custom');
+    const urlDiv = document.getElementById('qr-custom-url');
+    const dlBtn = document.getElementById('qr-custom-dl');
+
+    QRCode.renderToCanvas(canvas, url, { scale: 8, margin: 3, ecLevel: 1 });
+    urlDiv.textContent = url;
+
+    canvas.style.display = 'block';
+    urlDiv.style.display = 'block';
+    dlBtn.style.display = 'inline-flex';
+  }
+
+  function downloadQR(canvasId, filename) {
+    const canvas = document.getElementById(canvasId);
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
+  function printQR() {
+    document.getElementById('page-qr').classList.add('printing');
+    window.print();
+    document.getElementById('page-qr').classList.remove('printing');
+  }
+
+  // ── Sign Printing ──
+  function printSign(signId) {
+    const signEl = document.getElementById(signId);
+    // Create a print-only container
+    const printContainer = document.createElement('div');
+    printContainer.id = 'sign-print-container';
+    printContainer.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:10000;background:#fff;display:flex;align-items:center;justify-content:center;padding:20px;';
+    const clone = signEl.cloneNode(true);
+    clone.style.cssText = 'max-width:600px;width:100%;border:none;box-shadow:none;';
+    // Copy canvas content
+    const origCanvases = signEl.querySelectorAll('canvas');
+    const cloneCanvases = clone.querySelectorAll('canvas');
+    origCanvases.forEach((orig, i) => {
+      if (cloneCanvases[i]) {
+        cloneCanvases[i].width = orig.width;
+        cloneCanvases[i].height = orig.height;
+        const ctx = cloneCanvases[i].getContext('2d');
+        ctx.drawImage(orig, 0, 0);
+      }
+    });
+    printContainer.appendChild(clone);
+    document.body.appendChild(printContainer);
+    window.print();
+    document.body.removeChild(printContainer);
+  }
+
+  // ── Sign Download as Image ──
+  function downloadSign(signId, filename) {
+    const signEl = document.getElementById(signId);
+    const scale = 2; // 2x for crisp print quality
+    const rect = signEl.getBoundingClientRect();
+    const w = rect.width * scale;
+    const h = rect.height * scale;
+
+    // Use a large offscreen canvas to render the sign
+    const canvas = document.createElement('canvas');
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    // Render sign to SVG foreignObject, then to canvas
+    const data = new XMLSerializer().serializeToString(signEl);
+    const styles = document.querySelectorAll('style');
+    let styleText = '';
+    styles.forEach(s => styleText += s.innerHTML);
+
+    const svgStr = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${rect.width}" height="${rect.height}">
+        <foreignObject width="100%" height="100%">
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <style>${styleText}</style>
+            ${data}
+          </div>
+        </foreignObject>
+      </svg>`;
+
+    const img = new Image();
+    const blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    img.onload = function() {
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, rect.width, rect.height);
+      ctx.drawImage(img, 0, 0);
+      URL.revokeObjectURL(url);
+
+      // Also draw the QR canvases manually since foreignObject can't render canvas
+      const qrCanvases = signEl.querySelectorAll('canvas');
+      qrCanvases.forEach(qrCanvas => {
+        const qrRect = qrCanvas.getBoundingClientRect();
+        const offsetX = qrRect.left - rect.left;
+        const offsetY = qrRect.top - rect.top;
+        ctx.drawImage(qrCanvas, offsetX, offsetY, qrRect.width, qrRect.height);
+      });
+
+      const link = document.createElement('a');
+      link.download = filename + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    };
+    img.onerror = function() {
+      // Fallback: just print
+      URL.revokeObjectURL(url);
+      alert('Image download isn\'t supported in this browser. Use the Print button instead, and choose "Save as PDF" in the print dialog.');
+    };
+    img.src = url;
+  }
+
+  // Auto-hash navigation for hot tub deep links
+  if (window.location.hash === '#hottub') {
+    switchPage('hottub');
+  }
+</script>
+
+</body>
+</html>
