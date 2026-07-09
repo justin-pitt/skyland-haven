@@ -1,0 +1,15 @@
+# Credentials — repo is public, never commit
+.env
+.env.*
+!.env.example
+
+# Raw Hospitable pulls — contain guest PII (names/emails); repo is public.
+# Derived, PII-free CSVs in data/pnl/ are committed instead.
+# data/raw/pricelabs/ is market data (no PII) and stays committed as comp evidence.
+data/raw/hospitable/
+
+# Python analysis artifacts
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
