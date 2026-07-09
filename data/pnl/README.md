@@ -9,8 +9,9 @@
 Source: Hospitable public API v2 (`/reservations?include=financials`,
 `/properties/{uuid}/calendar`, `/payouts`), property `Skyland`
 (`8f91a20f-5c4d-4b42-aa35-f0e7812d64cf`), pulled 2026-07-08.
-Cost-side lines (mortgage, utilities, cleaning invoices, etc.) are NOT here yet —
-they are owner homework per `docs/data-checklist.md`.
+Cost-side lines (mortgage, utilities, cleaning, etc.) now live in
+`pnl-12mo-costs.csv` — see `costs-README.md`. Combine both with
+`python analysis/build_pnl_combined.py` → `pnl-combined.csv`.
 
 ## Column derivations
 

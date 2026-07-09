@@ -42,26 +42,21 @@ Every input from the handoff spec, monthly granularity, **trailing 12 months**. 
 
 ## Cost side (source: your records, not Airbnb)
 
-- [ ] **6. Mortgage / carrying cost allocated to the property**
-  - *Where:* Loan servicer statements (principal + interest + escrow). If no mortgage, use the agreed carrying-cost allocation and document the assumption.
+- [x] **6. Mortgage / carrying cost** ✅ 2026-07-09 — Movement Mortgage statements (`skyland-statement-*`). **$3,687.96/mo** (through Dec-2025) → **$3,725.68/mo** (from Jan-2026, escrow reset). Balance $473,271 @ 6.375%, PMI ~$181/mo inside escrow. `mortgage_piti` in `data/pnl/pnl-12mo-costs.csv`.
+  - *Where:* Loan servicer statements (principal + interest + escrow).
 
-- [ ] **7. Utilities** — power, water, internet, trash
-  - *Where:* Provider billing portals (12 months each). Power will be seasonal in Woodfin — get actuals per month, not an average.
+- [x] **7. Utilities** ✅ 2026-07-09 — from Pittnet Properties bank statements: Duke Energy (power, seasonal $160–434), Spectrum (internet $130–140), Woodfin Sanitary (water/sewer, ~bimonthly). No separate trash vendor (Woodfin covers sanitation). LTR tenant pays their own utilities → all utilities here are Skyland (owner-confirmed).
+  - *Where:* Provider billing portals — sourced instead from the account debits.
 
-- [ ] **8. Cleaning cost per turnover + turnovers per month**
-  - *Where:* Cleaner invoices or payment app history (Venmo/Zelle/etc.). Turnover count = number of checkouts, which you can pull from the earnings CSV reservation rows — reconcile the two.
+- [x] **8. Cleaning cost per turnover + turnovers** ✅ 2026-07-09 — 5StrClean, ~$360/turnover. **Cleaning paid ($14,143/11mo) ≈ cleaning fees collected ($13,830)** → net ~$28/mo, washes. `cleaning` column.
 
-- [ ] **9. Supplies and consumables**
-  - *Where:* Receipts / card statements (Amazon, Costco, etc.). A reasonable monthly estimate is acceptable here if receipts are scattered — flag it as an estimate.
+- [~] **9. Supplies and consumables** ⚠️ PARTIAL 2026-07-09 — one bulk buy visible (HostGPO $1,470, Aug-2025); otherwise minimal on statements. Likely under-captured if bought on a personal card. `supplies`/`other` columns.
 
-- [ ] **10. Hot tub maintenance and chemicals**
-  - *Where:* Receipts (chemicals, filters) + any service visits. Keep separate from general supplies — it's a candidate cost lever and an amenity we may lean on for ADR.
+- [~] **10. Hot tub maintenance and chemicals** ⚠️ NOT SEPARATELY IDENTIFIED 2026-07-09 — no distinct hot-tub/pool-chemical vendor in 11 months of statements. Likely bundled into 5StrClean turnovers or owner-handled. **Confirm how the hot tub is serviced** (it's an ADR amenity we may lean on).
 
-- [ ] **11. Repairs and maintenance**
-  - *Where:* Invoices/receipts, dated. One-time items should stay identifiable so they don't distort a single month's picture.
+- [~] **11. Repairs and maintenance** ⚠️ MINIMAL IN WINDOW 2026-07-09 — no major repair invoices Aug-2025→Jun-2026; closest are ambiguous `other` lines (Thumbtack, Venmo "marcus" ~$50). Confirm no large repairs were paid off-account.
 
-- [ ] **12. Insurance (STR policy) and property tax**
-  - *Where:* Policy declarations page (annual premium ÷ 12) + Buncombe County property tax bill (tax.buncombecounty.org for the bill amount). Note whether the policy is actually an STR policy or homeowner's.
+- [x] **12. Insurance (STR policy) and property tax** ✅ 2026-07-09 — **escrowed** inside the mortgage (~$650/mo escrow = tax + insurance + PMI). Tax/insurance split needs `skyland-escrow-analysis-2025.pdf`; **STR-vs-homeowner's policy status still to confirm** from `skyland decleration page.pdf` (coverage-gap risk).
 
 ## Market side (source: Airbnb search + listing editor)
 
