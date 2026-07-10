@@ -48,9 +48,13 @@ That flips the **−$452/mo** cash position to **≈ +$900/mo** — clearing bot
 
 ---
 
-## Parallel zero-cost check — listing conversion (now co-primary, not just supporting)
+## Parallel zero-cost check — listing conversion → **AUDIT DONE 2026-07-10, see `docs/conversion-audit.md`**
 
-The live settings sharpen this: PriceLabs says the **base price is already market-correct** ($521 vs recommended $522), yet occupancy still trails the market by 13–18 points. When price is right and bookings still don't come, the suspect is **conversion** — how many searchers who see the listing actually book. So this is not a side quest; audit the funnel at zero cost: first-5-photo order, title/summary, **review score and count**, amenity tags/search filters, and instant-book. If conversion is the true constraint, no amount of price-tuning fixes it — which is exactly what the 90-day gate is designed to reveal. Findings feed the next scorecard.
+The premise was: PriceLabs says the **base price is already market-correct** ($521 vs recommended $522), yet occupancy still trails the market by 13–18 points — so **conversion** (searchers who see the listing → actually book) was a co-primary suspect. **The audit result: conversion is NOT the leak.** The live listing is strong on every measurable signal — **101 reviews · 4.97★ · Superhost · Instant Book on · sleeps 12 · professional photos.** That *rules out listing quality as the alternative to the pricing thesis* and raises confidence the pricing intervention is aimed at the right lever.
+
+Candidate zero-cost tweaks were **reviewed with the owner 2026-07-10 and mostly dismissed with cause** (full table in `docs/conversion-audit.md`): photo reorder **declined** (PM-arranged, converts well); mountain view / BBQ grill **N/A** (don't exist); self check-in **already covered** (Schlage keypad auto-updated by Airbnb); title capacity **already shown/filterable**; hot-tub safety banner **effectively satisfied** (cover + patio rails). **Surviving items:** fix the stale "local co-host" description line, and turn on Hospitable's review automation — AI-drafted replies to guest reviews (approve/send within 30 days) + optionally activate a guest-review rule for review reciprocity/velocity.
+
+**Measurement gap:** whether the residual gap is *search ranking/visibility* (vs per-view conversion) can't be measured — PriceLabs **Listing Optimizer is not on this account** (paid add-on). Don't buy it until the pricing gate runs; if RevPAR lifts, ranking wasn't binding. None of this triggers a pivot away from pricing — the 90-day verdict still rests on RevPAR vs baseline.
 
 ## Explicitly NOT doing yet
 
