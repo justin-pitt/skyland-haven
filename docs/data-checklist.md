@@ -56,7 +56,7 @@ Every input from the handoff spec, monthly granularity, **trailing 12 months**. 
 
 - [~] **11. Repairs and maintenance** ⚠️ MINIMAL IN WINDOW 2026-07-09 — no major repair invoices Aug-2025→Jun-2026; closest are ambiguous `other` lines (Thumbtack, Venmo "marcus" ~$50). Confirm no large repairs were paid off-account.
 
-- [x] **12. Insurance (STR policy) and property tax** ✅ 2026-07-09 — **escrowed** inside the mortgage (~$650/mo escrow = tax + insurance + PMI). Tax/insurance split needs `skyland-escrow-analysis-2025.pdf`; **STR-vs-homeowner's policy status still to confirm** from `skyland decleration page.pdf` (coverage-gap risk).
+- [x] **12. Insurance (STR policy) and property tax** ✅ 2026-07-10 — **escrowed** inside the mortgage (~$650/mo escrow = tax + insurance + PMI). Owner-confirmed **both STR and homeowner's insurance are carried and paid through the mortgage escrow** → no coverage gap, no separate/missing insurance cost line. (Optional refinement: `skyland-escrow-analysis-2025.pdf` splits the escrow into exact tax vs. insurance $, not needed for the diagnosis.)
 
 ## Market side (source: Airbnb search + listing editor)
 
