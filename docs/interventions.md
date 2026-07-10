@@ -48,9 +48,13 @@ That flips the **−$452/mo** cash position to **≈ +$900/mo** — clearing bot
 
 ---
 
-## Parallel zero-cost check — listing conversion (now co-primary, not just supporting)
+## Parallel zero-cost check — listing conversion → **AUDIT DONE 2026-07-10, see `docs/conversion-audit.md`**
 
-The live settings sharpen this: PriceLabs says the **base price is already market-correct** ($521 vs recommended $522), yet occupancy still trails the market by 13–18 points. When price is right and bookings still don't come, the suspect is **conversion** — how many searchers who see the listing actually book. So this is not a side quest; audit the funnel at zero cost: first-5-photo order, title/summary, **review score and count**, amenity tags/search filters, and instant-book. If conversion is the true constraint, no amount of price-tuning fixes it — which is exactly what the 90-day gate is designed to reveal. Findings feed the next scorecard.
+The premise was: PriceLabs says the **base price is already market-correct** ($521 vs recommended $522), yet occupancy still trails the market by 13–18 points — so **conversion** (searchers who see the listing → actually book) was a co-primary suspect. **The audit result: conversion is NOT the leak.** The live listing is strong on every measurable signal — **101 reviews · 4.97★ · Superhost · Instant Book on · sleeps 12 · professional photos.** That *rules out listing quality as the alternative to the pricing thesis* and raises confidence the pricing intervention is aimed at the right lever.
+
+Zero-cost improvements still found and worth doing in parallel (full ranked punch list in `docs/conversion-audit.md`): (1) **reorder the first 5–8 photos** to lead with scale + the game room (buried at gallery position 43 despite being in the title) and demote the dark drone aerial from slot 3, adding captions to the first three; (2) **verify + tag missing search-filter amenities** (self check-in, mountain view, BBQ grill) — impressions unlock; (3) **front-load "5BR · Sleeps 12" in the title**; (4) **clear the "hot tub without a gate or lock" safety banner** with a ~$20–50 cover latch; (5) fix the stale "local co-host" line and respond to reviews.
+
+**Measurement gap:** whether the residual gap is *search ranking/visibility* (vs per-view conversion) can't be measured — PriceLabs **Listing Optimizer is not on this account** (paid add-on). Don't buy it until the pricing gate runs; if RevPAR lifts, ranking wasn't binding. None of this triggers a pivot away from pricing — the 90-day verdict still rests on RevPAR vs baseline.
 
 ## Explicitly NOT doing yet
 

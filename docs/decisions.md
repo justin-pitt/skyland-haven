@@ -4,6 +4,25 @@ Dated log of pricing and capex decisions. Newest first.
 
 ---
 
+## 2026-07-10 — Listing-conversion audit complete: conversion is NOT the leak
+
+Ran the parallel zero-cost funnel audit (`docs/conversion-audit.md`) using the Hospitable
+API (`analysis/fetch_listing_content.py`) + live Airbnb page signals. **Result:** the listing is
+strong on every measurable conversion signal — **101 reviews · 4.97★ · Superhost · Instant Book
+on · sleeps 12 · professional photos.** (Hospitable's store showed only 2 reviews; that is
+post-connection only — the public Airbnb count is 101. Verified before concluding.)
+
+**Decision / implication:** this **rules out listing quality** as the alternative to the pricing
+thesis and *raises confidence in the live pricing intervention* — no pivot. Fold the found
+zero-cost improvements in as cheap parallel work (photo reorder to lead with scale + game room;
+tag missing search-filter amenities — self check-in / mountain view / BBQ grill; front-load
+"5BR · Sleeps 12" in the title; ~$20–50 hot-tub cover latch to clear the safety banner; fix the
+stale "local co-host" description line). 90-day verdict still rests on **RevPAR vs baseline.**
+
+- **Cost / new recurring burn:** $0 (one optional ~$20–50 one-time cover latch; no recurring cost).
+- **Measurement gap flagged:** PriceLabs **Listing Optimizer** (search-rank data) is not on this
+  account — can't measure ranking/visibility. Do **not** buy the add-on until the pricing gate runs.
+
 ## 2026-07-10 — Executed: PriceLabs max price raised $750 → $1,050
 
 First live step of the Phase 3 pricing intervention. Owner raised the PriceLabs **Max Price**
