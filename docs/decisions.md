@@ -4,6 +4,18 @@ Dated log of pricing and capex decisions. Newest first.
 
 ---
 
+## 2026-07-10 — Executed: PriceLabs max price raised $750 → $1,050
+
+First live step of the Phase 3 pricing intervention. Owner raised the PriceLabs **Max Price**
+from **$750 to $1,050** (per `docs/pricelabs-settings.md` step 1) to stop the cap from throttling
+peak nights (market 90th pct $900–1,100; property has booked $858–935 on peak dates). Zero
+occupancy risk — PriceLabs only reaches the ceiling when demand supports it.
+
+- **Status:** live. Remaining settings steps (low-end aggressiveness, last-minute, orphan gaps)
+  still to apply.
+- **90-day review clock:** effectively started; gate **~2026-10-09** against the frozen baseline.
+- Watch RevPAR on peak weekends first (fastest signal from a cap raise).
+
 ## 2026-07-09 — Phase 2 diagnosis complete: loss is occupancy-driven
 
 Classified the loss (`docs/diagnosis.md`): **primary driver = occupancy** (26–37% vs 39–62%
