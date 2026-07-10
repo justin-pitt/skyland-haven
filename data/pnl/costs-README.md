@@ -67,4 +67,6 @@ mortgage is serviced by Pennymac. Owner confirmed:
    and two $29 NSF fees (Apr). `supplies` HostGPO ($1,470 Aug) is a one-time bulk buy. None
    change the diagnosis, but they inflate individual months.
 5. **Cleaning ≈ washes.** Cleaning paid ($14,143 over 11 mo) ≈ cleaning fees collected in
-   revenue ($13,830). Cleaning is not a loss driver.
+   revenue ($13,830). Cleaning is not a loss driver. **Hot-tub service is included in the
+   cleaning fee** (owner-confirmed 2026-07-10, 5StrClean services it per turnover) — there is
+   no separate hot-tub cost line.

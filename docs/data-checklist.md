@@ -52,7 +52,7 @@ Every input from the handoff spec, monthly granularity, **trailing 12 months**. 
 
 - [~] **9. Supplies and consumables** ⚠️ PARTIAL 2026-07-09 — one bulk buy visible (HostGPO $1,470, Aug-2025); otherwise minimal on statements. Likely under-captured if bought on a personal card. `supplies`/`other` columns.
 
-- [~] **10. Hot tub maintenance and chemicals** ⚠️ NOT SEPARATELY IDENTIFIED 2026-07-09 — no distinct hot-tub/pool-chemical vendor in 11 months of statements. Likely bundled into 5StrClean turnovers or owner-handled. **Confirm how the hot tub is serviced** (it's an ADR amenity we may lean on).
+- [x] **10. Hot tub maintenance and chemicals** ✅ 2026-07-10 — **owner-confirmed: included in the cleaning fee** (5StrClean services the hot tub as part of each turnover). No separate cost line — it lives inside `cleaning`, which washes against cleaning fees collected.
 
 - [~] **11. Repairs and maintenance** ⚠️ MINIMAL IN WINDOW 2026-07-09 — no major repair invoices Aug-2025→Jun-2026; closest are ambiguous `other` lines (Thumbtack, Venmo "marcus" ~$50). Confirm no large repairs were paid off-account.
 
