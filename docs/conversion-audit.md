@@ -38,11 +38,13 @@ Most candidate items were **checked with the owner and dismissed with cause** �
 | 2c | Add/tag **BBQ grill** | **N/A — no grill.** Not adding. |
 | 3 | Front-load "5BR · Sleeps 12" in title | **Not needed.** Airbnb already shows "12 guests" on the listing and surfaces it in the 12-guest capacity filter; the title slot is better spent on the game-room + hot-tub differentiators it already carries. |
 | 4 | Clear "hot tub without a gate or lock" safety banner | **Effectively satisfied.** Hot tub has a **cover** and is enclosed by the **patio railings**. Low priority; owner may update the Airbnb safety-features answer if the banner persists, but no hardware needed. |
-| 5 | Copy hygiene + review replies | **Kept — see below.** |
+| 5 | Copy hygiene + review replies | **DONE 2026-07-10 — see below.** |
 
-### 5 (kept). Copy hygiene + automate review replies — **owner action, $0**
-- The description still says *"Our local co-host lives close by and is available for anything you might need."* That is **stale** — the co-host was eliminated when you took over self-management (`docs/diagnosis.md`). Replace with a responsive-self-management line; a false "co-host" claim reads as inattentive.
-- The 2 Hospitable-visible reviews are **unanswered** (`response:null`, `can_respond:true`). Hospitable can **AI-draft the reply automatically** when a new review lands (Airbnb/Booking.com); by default it's a draft you approve/edit/send, within a 30-day window — so this becomes near-hands-off going forward. Separately, the account has **7 inactive "Review" rules** (`event:review`, "send 3 days after checkout") that auto-**leave reviews of guests** — activating one drives review reciprocity (guest reviewed → more likely to review you), which helps review velocity. Neither is on today.
+### 5 (done 2026-07-10). Copy hygiene + review automation
+- **Stale co-host line — FIXED.** The description previously said *"Our local co-host lives close by and is available for anything you might need."* Owner self-manages from ~2 hours away with a local team, so it was replaced (edited directly in Airbnb, the content source of truth) with a responsive-host + local-team line. Hospitable's cached copy re-syncs from Airbnb on its next pull.
+- **Backlog review replies — DONE.** The 2 previously unanswered 5★ reviews now have public host responses (posted via the Hospitable API `respond-to-review`).
+- **Auto-review-the-guest — LIVE.** All **7 "Review" rules** (`event:review`, "send 3 days after checkout") are now `active:true` — a rotation pool that auto-leaves a guest review 3 days post-checkout, driving review reciprocity/velocity. (Watch: fires on every guest, so flag a problem guest before the timer.)
+- **AI review *replies* — no toggle needed.** Not a dashboard switch; Hospitable surfaces an AI-drafted reply inline in the **Inbox** when a review lands (draft by default, 30-day Airbnb window; "Suggest with AI" button on demand). Essentials plan caps AI at 10 uses/week — ample at this volume. Standing workflow: approve the draft in the Inbox as reviews arrive.
 
 ---
 
