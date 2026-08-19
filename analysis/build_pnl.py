@@ -31,7 +31,22 @@ REPO = Path(__file__).resolve().parent.parent
 RAW = REPO / "data" / "raw" / "hospitable"
 OUT = REPO / "data" / "pnl"
 
-MONTHS = [f"2025-{m:02d}" for m in range(7, 13)] + [f"2026-{m:02d}" for m in range(1, 7)]
+# Trailing-12 analysis window. Roll both ends forward by one each month.
+WINDOW_START = "2025-08"   # first full month in the window
+WINDOW_END = "2026-07"     # last full month in the window
+
+
+def month_range(start: str, end: str) -> list[str]:
+    """Inclusive list of YYYY-MM strings from start to end."""
+    y, m = int(start[:4]), int(start[5:7])
+    out = []
+    while f"{y}-{m:02d}" <= end:
+        out.append(f"{y}-{m:02d}")
+        y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+    return out
+
+
+MONTHS = month_range(WINDOW_START, WINDOW_END)
 
 
 def d(amount_cents) -> float:

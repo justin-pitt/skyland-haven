@@ -1,14 +1,21 @@
-# data/pnl/ — revenue-side P&L (trailing 12 months: 2025-07 .. 2026-06)
+# data/pnl/ — revenue-side P&L (trailing 12 months: 2025-08 .. 2026-07)
 
 ## Files
+
+The window is set by `WINDOW_START`/`WINDOW_END` in `analysis/build_pnl.py` and
+`analysis/fetch_hospitable.py`; roll both forward by one month each cycle.
 
 - `pnl-12mo-revenue.csv` — one row per month. Produced by `analysis/build_pnl.py`
   from raw Hospitable API JSON in `data/raw/hospitable/` (gitignored — contains
   guest PII; regenerate with `analysis/fetch_hospitable.py`, PAT in `.env`).
 
+- `forward-pace.csv` — forward on-the-books vs same-time-last-year, plus how often
+  the listing's min/max price clamp binds. Produced by `analysis/build_forward_pace.py`
+  from the PriceLabs pull in `data/raw/pricelabs/` (see that directory's README).
+
 Source: Hospitable public API v2 (`/reservations?include=financials`,
 `/properties/{uuid}/calendar`, `/payouts`), property `Skyland`
-(`8f91a20f-5c4d-4b42-aa35-f0e7812d64cf`), pulled 2026-07-08.
+(`8f91a20f-5c4d-4b42-aa35-f0e7812d64cf`), pulled 2026-08-19.
 Cost-side lines (mortgage, utilities, cleaning, etc.) now live in
 `pnl-12mo-costs.csv` — see `costs-README.md`. Combine both with
 `python analysis/build_pnl_combined.py` → `pnl-combined.csv`.
