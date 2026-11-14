@@ -4,6 +4,38 @@ Dated log of pricing and capex decisions. Newest first.
 
 ---
 
+## 2026-11-14: Logged owner experiment: max $1,050 applied in early September, then reverted to $750 with promos
+
+After the 2026-08-19 finding that the cap raise had never been applied, the owner set the
+PriceLabs max price to **$1,050 in early September 2026**. Bookings stalled for a while
+afterward. He then set the max back to **$750 and added promotions**, and bookings resumed.
+
+**Read-back on 2026-11-14** (PriceLabs `get_listing_data`): min $332 / base $510 / max $750.
+Forward occupancy next 7 / 30 / 60 days: **14% / 37% / 38%** vs market 44% / 44% / 40%. On
+2026-08-19 the same reads were 0% / 10% / 17% vs market 43% / 37% / 36%.
+
+What this shows and what it doesn't:
+
+- The $1,050 cap is the only test of a higher ceiling this property has had, and it coincided
+  with a booking stall. The owner's call is to stay at $750. That stands.
+- The revert and the promos went in together, so the recovery can't be split between them.
+  If it ever matters, the test is removing the promos while holding $750.
+- A **Vrbo** channel appears in the PriceLabs channel list on 2026-11-14 and was absent on
+  2026-08-19. If it went live in the same window, it is a third concurrent change.
+- Exact dates for the raise, the revert, the promo start and the Vrbo go-live were not
+  recorded, and the promo terms are not in this repo. That limits any before/after reading.
+  Promos also lower realized ADR, so future scorecards should read ADR against them.
+
+**Decisions:**
+
+- Max price stays at $750. The cap raise (`docs/pricelabs-settings.md` step 1) is closed as
+  tried and reverted, not pending.
+- The 90-day gate reset on 2026-08-19 no longer has a single intervention to judge. The next
+  scorecards judge the current setup ($750 cap plus promos, with Vrbo live) against the
+  Feb to Jun 2026 baseline.
+
+- **Cost / new recurring burn:** $0. Promo cost shows up as lower revenue, not as opex.
+
 ## 2026-08-19 — Finding: the 2026-07-10 pricing intervention was never live; 90-day gate reset
 
 While producing the first monthly scorecard (`docs/reports/2026-07.md`), the live PriceLabs
