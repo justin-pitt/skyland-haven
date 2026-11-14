@@ -4,6 +4,70 @@ Dated log of pricing and capex decisions. Newest first.
 
 ---
 
+## 2026-11-14: Logged owner experiment: max $1,050 applied in early September, then reverted to $750 with promos
+
+After the 2026-08-19 finding that the cap raise had never been applied, the owner set the
+PriceLabs max price to **$1,050 in early September 2026**. Bookings stalled for a while
+afterward. He then set the max back to **$750 and added promotions**, and bookings resumed.
+
+**Read-back on 2026-11-14** (PriceLabs `get_listing_data`): min $332 / base $510 / max $750.
+Forward occupancy next 7 / 30 / 60 days: **14% / 37% / 38%** vs market 44% / 44% / 40%. On
+2026-08-19 the same reads were 0% / 10% / 17% vs market 43% / 37% / 36%.
+
+What this shows and what it doesn't:
+
+- The $1,050 cap is the only test of a higher ceiling this property has had, and it coincided
+  with a booking stall. The owner's call is to stay at $750. That stands.
+- The revert and the promos went in together, so the recovery can't be split between them.
+  If it ever matters, the test is removing the promos while holding $750.
+- A **Vrbo** channel appears in the PriceLabs channel list on 2026-11-14 and was absent on
+  2026-08-19. If it went live in the same window, it is a third concurrent change.
+- Exact dates for the raise, the revert, the promo start and the Vrbo go-live were not
+  recorded, and the promo terms are not in this repo. That limits any before/after reading.
+  Promos also lower realized ADR, so future scorecards should read ADR against them.
+
+**Decisions:**
+
+- Max price stays at $750. The cap raise (`docs/pricelabs-settings.md` step 1) is closed as
+  tried and reverted, not pending.
+- The 90-day gate reset on 2026-08-19 no longer has a single intervention to judge. The next
+  scorecards judge the current setup ($750 cap plus promos, with Vrbo live) against the
+  Feb to Jun 2026 baseline.
+
+- **Cost / new recurring burn:** $0. Promo cost shows up as lower revenue, not as opex.
+
+## 2026-08-19 — Finding: the 2026-07-10 pricing intervention was never live; 90-day gate reset
+
+While producing the first monthly scorecard (`docs/reports/2026-07.md`), the live PriceLabs
+configuration was read back for the first time since the change was logged. **The max price is
+still $750.** `get_listing_data` returns `min: 332, base: 510, max: 750` (pushed
+2026-08-19T01:25:24Z), and the daily feed shows the clamp directly: on 41 of the next 135
+nights the model's `uncustomized_price` exceeds $750 while the pushed price sits exactly at
+$750. The 2026-07-10 entry below records the raise to $1,050 as executed and live. It is not.
+
+Separately, **July could not have measured the intervention anyway** — all 11 July room-nights
+were booked between 2026-01-21 and 2026-06-11, every one before the 2026-07-10 change date.
+
+**Decisions:**
+
+- The **2026-10-09 gate is void.** The 90-day clock restarts from the date the settings are
+  verified live, not from 2026-07-10.
+- **No new intervention is selected** until the configuration matches the log. Fix the drift
+  first, one variable at a time.
+- **Process change:** every future "executed" entry in this log must record a *read-back
+  verification* (the API/UI value observed after saving), not just the intended change. This
+  entry exists because that step was missing.
+
+**Also surfaced (not yet decided):** forward pace is running at roughly half of last year —
+23 of the remaining 135 nights of 2026 on the books vs 48 at the same point last year (Oct
+19% vs 58%, Dec 13% vs 48%); PriceLabs pulse is Red at 0/10/17% occupancy for the next
+7/30/60 days vs market 43/37/36%. The leading hypothesis is the **4–5 night minimum stay now
+enforced across Oct–Dec** against a comp set whose median booked stay is 3 nights. This is
+correlation, not proven cause — the July pull did not cover October. Confirm in the PriceLabs
+min-stay settings before acting on it.
+
+- **Cost / new recurring burn:** $0.
+
 ## 2026-07-10 — Listing-conversion audit complete: conversion is NOT the leak
 
 Ran the parallel zero-cost funnel audit (`docs/conversion-audit.md`) using the Hospitable

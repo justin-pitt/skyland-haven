@@ -2,7 +2,7 @@
 
 Monthly Skyland-attributed operating costs, extracted from the **Pittnet Properties**
 business account (Navy Federal Credit Union, access no. on file). One row per month,
-aligned to the revenue CSV window (2025-07 .. 2026-06).
+aligned to the revenue CSV window (2025-08 .. 2026-07).
 
 All dollar figures are **actual cash outlays** transcribed from the monthly checking +
 credit-card statements. Every month was reconciled line-by-line to the statement's own
@@ -49,9 +49,13 @@ mortgage is serviced by Pennymac. Owner confirmed:
 
 ## Caveats (read before using)
 
-1. **2025-07 is missing.** No July-2025 statement was available in the account export;
-   the row is blank. The trailing-year totals in `docs/diagnosis.md` are therefore an
-   **11-month** window (Aug-2025 .. Jun-2026).
+1. **2026-07 is missing (open).** The July-2026 checking and credit statements are not
+   yet in `~/OneDrive/Documents/accounting/` (latest is JUN-2026), so the row is blank and
+   July net cash is not computed — see `docs/reports/2026-07.md`. Per `CLAUDE.md` no
+   estimate has been substituted. Fill this row when the statements land.
+   *(The previously-missing 2025-07 row dropped out of the window when it rolled forward on
+   2026-08-19, so the trailing-year totals in `docs/diagnosis.md` remain an 11-month window
+   — Aug-2025 .. Jun-2026 — until the July-2026 row is filled.)*
 2. **Cash deposits ≠ accrual revenue.** `airbnb_deposits_cash` (what actually landed in
    the bank) runs materially **below** the Hospitable host-side accrual in
    `pnl-12mo-revenue.csv` during 2025 — e.g. Aug-2025 banked $4,125 vs. $7,339 accrual.
